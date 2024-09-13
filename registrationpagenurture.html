@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+      
+        .body-container1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 200px;
+            top: 200px;
+            position:relative;
+            background-color: #5557a2;
+            width: calc(90% - 60px); /* Subtracting 30px margin on both sides */
+            height: 500px; /* Subtracting 30% margin (top and bottom combined) */
+            margin: 15% 30px; /* 15% top and bottom, 30px left and right */
+            border-radius: 8px; /* Optional: rounded corners for the container */
+            overflow: hidden; /* Ensure rounded corners affect all children */
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 650px 550px; /* Fixed width for the first and second columns */
+            width: 1200px; /* Set the container width */
+            height: 450px; /* Set the container height */
+            gap: 5px; /* Space between grid items */
+            animation: slideIn 3s ease-out; /* Apply the slide-in animation */
+            background-color: #0f1040; /* Dark background color */
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+
+               /* Optional: Slightly slide in from the left */
+            }
+            to {
+                opacity: 1;
+                /* End at the original position */
+            }
+        }
+
+        .navbar{
+            display: flex;
+            background-color: transparent;
+            margin-top: 1px;
+            top:2px;
+            height:75px;
+            background-color: rgb(13, 150, 150);
+            position: fixed;
+
+            
+        }
+        .imgnav{
+            width:70px;
+            height:70px;
+            margin-left: 35px;
+            margin-top: 1px;
+        }
+        ul {
+            display: flex;
+            gap: 25px;
+            list-style-type: none;
+            font-family: cursive;
+            margin-left: 850px; /* Adjust margin as needed */
+            font-weight: x-large;
+            justify-content: space-evenly; 
+            font-size: 20px;
+            background-color: #383aa1;
+            opacity: 0.7;
+            width: 500px; /* Fixed width for the <ul> */
+            height:30px;
+            border-radius: 11px;
+            
+        }
+        li{
+            color:rgb(203, 189, 34);
+        }
+        li:hover{
+            color:rgb(219, 186, 25); 
+            cursor: pointer;
+        }
+
+        .box11 {
+            background-size: cover; /* Cover the entire box */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Prevent repeating of the image */
+            grid-column: 1 / 2; /* Span the first column */
+            grid-row: 1 / 2; /* Span the first row */
+            z-index: 1; /* Ensure it stays behind .box2 if overlapping */
+            height: 100%; /* Ensure it takes full height of the container */
+            width: 100%; /* Ensure it takes full width of the container */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box11 img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensure the image covers the container without distortion */
+        }
+        .box2 {
+            background-color: rgb(47, 101, 36); /* Adjust color as needed */
+            grid-column: 2 / 3; /* Span the second column */
+            grid-row: 1 / 2; /* Span the first row */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+         /* Ensure it stays on top */
+            padding: 20px; /* Add padding if necessary */
+            color: white; /* Ensure text is readable */
+        }
+        .box2 form {
+            display: flex;
+            flex-direction: column;
+            width: 100%; /* Make form fill the width of its container */
+        }
+        .box2 input {
+            margin-bottom: 10px; /* Space between inputs */
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            border-bottom: 1px solid #ddab15;
+            background-color: transparent;
+            color: #ddab15;
+        }
+        .box2 input[type="text"],
+        .box2 input[type="email"],
+        .box2 input[type="password"] {
+            width: calc(100% - 20px); /* Ensure inputs fit within the container */
+        }
+        .box2 input[type="submit"] {
+            background-color: #ddab15;
+            color: white;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .box2 input[type="submit"]:hover {
+            background-color: #cca818;
+        }
+        .box2 input::placeholder {
+            color: #e7ac17; /* Placeholder text color */
+            font-family: cursive; /* Optional: make placeholder text italic */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class = "navbar">
+        <img src = "greens.jpg" class = "imgnav">
+        <ul>
+            
+            <li>Registration</li>
+            <li a href = "signin.html">Login</li>
+            <li a href = "e-commercehomepage.html">Home</li>
+        </ul>
+    </div>
+    <h3 style="font-family: sans-serif; color: rgb(178, 88, 88); z-index: 3; margin-top: -45px;position:absolute;">
+        "Ready to dive in? Register today and let's get started!"
+    </h3>
+    <div class="body-container1">
+        
+        <div class="container">
+            <div class="box11">
+                <img src="REGISTRATION.jpg" alt="Background Image">
+            </div>
+            <div class="box2">
+                <form>
+                  
+                    <input type="text" placeholder="#NAME" required>
+                    <input type="email" placeholder="#EMAIL" required>
+                    <input type="password" placeholder="#ENTER PASSWORD" required>
+                    <input type="password" placeholder="#CONFIRM PASSWORD" required>
+                    <input type="text" placeholder="#MOBILE" required>
+                    <input type="submit" value="Register">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

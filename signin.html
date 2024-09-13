@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://wallpapercave.com/wp/wp4422449.jpg");
+            overflow: hidden;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center; /* Center items horizontally */
+            background-color: transparent; /* Semi-transparent background */
+            padding: 1rem; /* Padding around the navbar */
+            position: fixed; /* Fixed positioning */
+            top: 0; /* Stick to the top */
+            width: 100%; /* Full width */
+            color: aliceblue; /* Text color */
+            z-index: 1000; /* Ensure it stays above other content */
+
+        }
+        ul {
+            list-style-type: none; /* Remove default bullets */
+            padding: 0;
+            display: flex; /* Use Flexbox to align list items */
+            gap: 30px; /* Space between items */
+            margin-left: 900px;
+        }
+        li {
+            display: inline; /* Align list items horizontally */
+        }
+        a {
+            color: aliceblue; /* Link color */
+            text-decoration: none; /* Remove underline */
+            font-size: 1rem; /* Font size */
+            font-family: cursive;
+        }
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+            font-family: cursive;
+        }
+        .login-container {
+            background: transparent;
+            margin-top: 270px;
+            margin-left: 35%;
+            position: absolute;
+            backdrop-filter:brightness(1.2) blur(8px);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px whitesmoke;
+            border-color: 1px white;
+            width: 300px;
+            transition: width 0.3s ease,height 0.3s ease;
+            display: none; /* Initially hidden */
+        }
+        img{
+            margin-top: 1px;
+            margin-left:70px;
+
+        }
+
+        .login-container:hover {
+            background: transparent;
+            margin-top: 270px;
+            margin-left: 35%;
+            position: absolute;
+            backdrop-filter:brightness(1.2) blur(8px);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px whitesmoke;
+            border-color: 1px white;
+            width: 400px;
+            height:250px;
+            display: none; /* Initially hidden */
+        }
+        .login-container input::placeholder{
+            color:#fff;
+            font-family: cursive;
+        }
+        .login-container h2 {
+            margin-bottom: 1rem;
+            text-align: center;
+            color:#fff;
+            font-family: cursive;
+        }
+        .login-container label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            color:#f3f3f3;
+            background-color: transparent;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #3183db;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Loader styles */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .loader div {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #007bff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div></div>
+    </div>
+    <div class="navbar">
+        <img src = "greens.jpg" height = "50px" width = "70px">
+        <ul>
+            <li><a href="e-commercehomepage.html">Home</a></li>
+            <li><a href="#signin.html">Login</a></li>
+            <li><a href="registrationpagenurture.html">Registration</a></li>
+            
+        </ul>
+    </div>
+
+    <!-- Login Form -->
+    <div class="login-container" id="login-container">
+        <h2>Login</h2>
+        <form id="login-form" action="/submit-login" method="post">
+           
+            <input type="text" id="username" name="username" required placeholder="#USERNAME">
+
+            <input type="password" id="password" name="password" required placeholder="#PASSWORD">
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to hide the loader and show the login form after a delay
+        function showLoginPage() {
+            var loader = document.getElementById('loader');
+            var loginContainer = document.getElementById('login-container');
+
+            // Hide the loader and show the login form after 5 seconds
+            setTimeout(function() {
+                loader.style.display = 'none'; // Hide the loader
+                loginContainer.style.display = 'block'; // Show the login form
+            }, 1500); // 5 seconds
+        }
+
+        // Call the function when the page is fully loaded
+        window.addEventListener('load', showLoginPage);
+    </script>
+</body>
+</html>

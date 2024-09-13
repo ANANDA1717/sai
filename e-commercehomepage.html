@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Bar with Icon</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("C:/Users/Anant/Downloads/wood.jpg");
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: #f0f0f0; /* Background color of the header */
+            z-index: 1000; /* Ensure header stays on top */
+            padding: 10px; /* Adjust padding as needed */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1001; /* Ensure logo stays on top of other elements */
+        }
+        
+        
+            .neon-text {
+                position: absolute;
+                top: 20%;
+                left: 50%;
+                transform: translateX(-50%);
+                transform: translateY(1200%);
+                color: #0f0; /* Example neon green */
+                text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+                font-size: 2em;
+                text-align: center;
+                white-space: nowrap; /* Prevents text wrapping */
+                animation: slideIn 3s ease-out 3s;
+            }
+
+            .neon-text1 {
+                position: absolute;
+                top: 20%;
+                left: 50%;
+                transform: translateX(-50%);
+                transform: translateY(1700%);
+                color: #0f0; /* Example neon green */
+                text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+                font-size: 2.1em;
+                text-align: center;
+                white-space: nowrap; /* Prevents text wrapping */
+                animation: slideIn 3s ease-out 5s;
+            }
+        
+        
+ 
+  @keyframes slideIn {
+    from {
+      transform: translateX(100vw); /* Start from the right of the viewport */
+      opacity: 0;
+      color: #0f0; /* Example neon green */
+      text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+    }
+    to {
+      transform: translateX(70vw); /* Move to the center */
+      opacity: 1;
+      color:  rgb(235, 156, 11); /* Example neon green */
+      text-shadow: 0 0 10px rgb(255, 166, 0), 0 0 20px rgb(255, 166, 0), 0 0 30px rgb(255, 166, 0);
+    }
+  }
+
+
+        nav.top-navbar {
+            width: calc(100% - 120px); /* Full width minus logo width and margin */
+            max-width: 400px; /* Adjusted width to fit content */
+            background-color: transparent;
+            color: rgb(7, 7, 7);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px;
+            background-color:#0b52187b;
+            border-radius: 11px;
+            position: fixed;
+            top: 40px; /* Positioned below the logo */
+            left: 1100px; /* Start after the logo */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        nav.top-navbar a {
+            color: rgb(58, 51, 51);
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav.top-navbar a:hover {
+            text-decoration: underline;
+        }
+
+        nav.bottom-navbar {
+            width: calc(100% - 120px); /* Full width minus logo width and margin */
+            max-width: 800px; /* Adjusted width to fit content */
+            background-color:#0b52187b;
+            color: #343a40;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px;
+            border-radius: 11px;
+            position: fixed;
+            top: 110px; /* Positioned below the top-navbar */
+            left: 700px; /* Start after the logo */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        .mySlides {
+            display: none;
+        }
+        
+        .w3-display-container {
+            position: relative;
+        }
+        
+        .w3-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+        
+        .w3-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .w3-display-left {
+            left: 0;
+        }
+        
+        .w3-display-right {
+            right: 0;
+        }
+        /* second coffee slideshow*/
+        .w3-display-container1 {
+            position: relative;
+        }
+        
+        .w3-button1 {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+        
+        .w3-button1:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .w3-display-left {
+            left: 0;
+        }
+        
+        .w3-display-right {
+            right: 0;
+        }
+        nav.bottom-navbar a {
+            color: #e0e1e5;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav.bottom-navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 31px;
+            background-color: #fff;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto 20px; /* Space between bottom navbar and search bar */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .search-container input {
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            outline: none;
+            flex: 1;
+            border-radius: 31px 0 0 31px;
+        }
+
+        .search-container button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 0 31px 31px 0;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .search-container button .search-icon {
+            margin: 0;
+        }
+         .w3-content {
+            position: relative;
+            max-width: 1200px;
+            height: auto; /* Adjust width as needed */
+            margin: 20px auto;
+            overflow: hidden;
+            top:100px; /* Hide overflow for smooth sliding */
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .w3-button {
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 24px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            transform: translateY(-50%);
+        }
+
+        .w3-display-left {
+            left: 0;
+        }
+
+        .w3-display-right {
+            right: 0;
+        }
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 70px;
+            padding: 20px;
+            background-color: #505962;
+            
+        }
+
+        .flex-row p {
+            flex: 1;
+            margin: 0 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-slider1 {
+            position: relative;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(33, 8, 216, 0.948);
+            margin-top: 20px;
+            left: 50px;
+            height: 300px;
+        }
+
+        .slider-container1 {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide1 {
+            flex: 1 0 20%; /* Each slide takes up 20% of the container width */
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .slide-info {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .slide-info h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .slide-info p {
+            margin: 5px 0 0;
+            font-size: 16px;
+        }
+
+        .slide-info .price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 50%;
+            font-size: 24px;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .slider-button.prev {
+            left: 10px;
+        }
+
+        .slider-button.next {
+            right: 10px;
+        }
+
+        .slider-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+       
+        .product-slider1 {
+            position: relative;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(45, 8, 231, 0.115);
+            margin-top: 20px;
+        }
+
+        .product-slider1:hover {
+            position: relative;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(45, 8, 231, 0.919);
+            margin-top: 20px;
+        }
+
+        .slider-container1 {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide1 {
+            flex: 1 0 20%;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .slide1 img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .slide-info1 {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .slide-info1 h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .slide-info1 p {
+            margin: 5px 0 0;
+            font-size: 16px;
+        }
+
+        .slide-info1 .price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .slider-button1 {
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 50%;
+            font-size: 24px;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .slider-button1.prev1 {
+            left: 10px;
+        }
+
+        .slider-button1.next1 {
+            right: 10px;
+        }
+
+        .slider-button1:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .product-slider1 {
+            position: relative;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .slider-container1 {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide1 {
+            flex: 1 0 20%;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .slide1 img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .slide-info1 {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .slide-info1 h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .slide-info1 p {
+            margin: 5px 0 0;
+            font-size: 16px;
+        }
+
+        .slide-info1 .price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .slider-button1 {
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 50%;
+            font-size: 24px;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .slider-button1.prev1 {
+            left: 10px;
+        }
+
+        .slider-button1.next1 {
+            right: 10px;
+        }
+
+        .slider-button1:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .sidecontainer {
+            position: absolute; /* Allows for precise positioning */
+            top: 50%; /* Position from the top of the nearest positioned ancestor */
+            left: 0px; /* Position from the left of the nearest positioned ancestor */
+            width: 200px; /* Fixed width */
+            height: 300px; /* Fixed height */
+            overflow: hidden; /* Hides overflowing content */
+            background-color: #fefafa; /* Light background color */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(45, 8, 231, 0.115); /* Shadow effect */
+            transform: translateY(270%); /* Centers vertically based on its top position */
+        }
+
+        .sidecontainer:hover {
+            position: absolute; /* Allows for precise positioning */
+            top: 50%; /* Position from the top of the nearest positioned ancestor */
+            left: 0px; /* Position from the left of the nearest positioned ancestor */
+            width: 200px; /* Fixed width */
+            height: 300px; /* Fixed height */
+            overflow: hidden; /* Hides overflowing content */
+            background-color: #fefafa; /* Light background color */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(39, 26, 229, 0.978); /* Shadow effect */
+            transform: translateY(270%); /* Centers vertically based on its top position */
+        }
+        
+       
+        
+       
+        .checkbox-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Space between checkboxes */
+            border-color: blue;
+        }
+        
+        label {
+            display: flex;
+            align-items: center;
+            color:blue
+        }
+        
+        input[type="checkbox"] {
+            margin-right: 11px; /* Space between checkbox and label text */
+        }
+        
+        .product-slider2{
+            position: relative;
+            max-width: 1400px;
+            margin: auto;
+            overflow: hidden;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(45, 8, 231, 0.115);
+            margin-top: 20px;
+        }
+
+        .product-slider2:hover {
+            position: relative;
+            max-width: 1500px;
+            margin: auto;
+            overflow: hidden;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(45, 8, 231, 0.919);
+            margin-top: 20px;
+        }
+        
+        
+        .product-slider3{
+            position: relative;
+            max-width: 1400px;
+            margin: auto;
+            overflow: hidden;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(45, 8, 231, 0.115);
+            margin-top: 20px;
+            transform: translateY(40%); /* Centers vertically based on its top position */
+        }
+
+        .product-slider3:hover {
+            position: relative;
+            max-width: 1500px;
+            margin: auto;
+            overflow: hidden;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(45, 8, 231, 0.919);
+            margin-top: 20px;
+            transform: translateY(40%); /* Centers vertically based on its top position */
+        }
+        .carousel-wrapper {
+            position: relative;
+            max-width: 1200px;
+            margin: 20px auto; /* Center content and add vertical margin */
+            overflow: hidden; /* Hide overflow for smooth sliding */
+            padding-top: 50px; /* Space for the sliding effect */
+            height: 400px; /* Fixed height for the carousel container */
+        }
+
+        .carousel-slide {
+            display: none; /* Hide slides initially */
+            height: 100%; /* Ensure slides fill the container height */
+        }
+
+        .carousel-slide img {
+            width: 100%; /* Ensure images fill the container */
+            height: 100%; /* Ensure images fill the container */
+            object-fit: cover; /* Maintain aspect ratio and cover the container */
+        }
+
+        .slide2 {
+            flex: 1 0 20%; /* Each slide takes up 20% of the container width */
+            box-sizing: border-box;
+            padding: 10px;
+            animation: fade 3s ;
+            transform: translateY(10%);
+            box-shadow: 0 11px 11px rgba(41, 21, 143, 0.845);
+        }
+        .slide2:hover{
+            box-shadow: 7px 11px 11px rgba(45, 8, 231, 0.845);
+        }
+        /* Fade animation for slides */
+        @keyframes fade {
+            from { opacity: 0.1;  box-shadow: 0 2px 10px rgba(45, 8, 231, 0.115);}
+            to { opacity: 1;  }
+        }
+
+        .fade {
+            animation: fade 1.5s ease-in-out;
+        }
+        
+        footer {
+            background-color: #343a40;
+            color: #e0e1e5;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            height: 400px;
+            width: 100%;
+            transform: translateY(40%);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            padding: 0 10px;
+        }
+
+        .footer-section h2 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            border-bottom: 2px solid #e0e1e5;
+            padding-bottom: 5px;
+        }
+
+        .footer-section p,
+        .footer-section ul {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .footer-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 5px;
+        }
+
+        .footer-section ul li a {
+            color: #e0e1e5;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 10px;
+            background-color: #23272b;
+            color: #e0e1e5;
+            transform: translateY(300%);
+        }
+        .footer-section.contact a {
+            color: #e0e1e5;
+            text-decoration: none;
+        }
+        
+        .footer-section.contact a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-media-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: white;
+            background-color: #333;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .social-icon.facebook {
+            background-color: #3b5998;
+        }
+        
+        .social-icon.twitter {
+            background-color: #1da1f2;
+        }
+        
+        .social-icon.instagram {
+            background-color: #e4405f;
+        }
+        
+        .social-icon.linkedin {
+            background-color: #0077b5;
+        }
+        
+        .social-icon.whatsapp {
+            background-color: #25d366;
+        }
+        
+        .social-icon:hover {
+            background-color: #555;
+            color: #f0f0f0;
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+        /* Hide all images by default */
+        .carousel .mySlides {
+            display: none;
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        /* Style for navigation buttons */
+        .carousel .prev, .carousel .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        /* Position left button */
+        .carousel .prev {
+            left: 0;
+        }
+        /* Position right button */
+        .carousel .next {
+            right: 0;
+        }
+        .slideshow-container-11 {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+        /* Hide all images by default */
+        .slideshow-container-11 .Slide1 {
+            display: none;
+            width: 100%;
+            height: 500px;
+            object-fit: cover; /* Adjusts the image to fit the container */
+        }
+        /* Style for navigation buttons */
+        .slideshow-container-11 .prev, .slideshow-container-11 .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        /* Position left button */
+        .slideshow-container-11 .prev {
+            left: 0;
+        }
+        /* Position right button */
+        .slideshow-container-11 .next {
+            right: 0;
+        }
+        .carousel-item11 img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover; /* Ensures images cover the container */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="greens.jpg" height="100px" width="100px" alt="Logo">
+        </div>
+
+        <nav class="top-navbar">
+            <a href="#">About Us</a>
+            <a href="#">Phone</a>
+            <a href="#">No</a>
+        </nav>
+
+        <nav class="bottom-navbar">
+            <a href="e-commercehomepage.html">Home</a>
+            <a href="signin.html">Login</a>
+            <a href="registrationpagenurture.html">Registration</a>
+            
+        </nav>
+    </div>
+
+    <div class="search-container">
+        <input type="text" placeholder="Search...">
+        <button type="submit">
+            <i class="search-icon">&#128269;</i>
+        </button>
+    </div>
+    <div class="w3-content w3-display-container">
+        <img class="mySlides" src="cofeeslider.jpg" style="width:100%; height:500px;background-size:contain;">
+        <img class="mySlides" src="img_lights.jpg"  height = "700px" style="width:100%">
+        <img class="mySlides" src="img_mountains.jpg" style="width:100%">
+        <img class="mySlides" src="img_forest.jpg" style="width:100%">
+    
+        <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+    <br/>
+    <br/>
+    <div class="flex-row">
+       <p> <img src="https://img.icons8.com/ios-filled/50/4caf50/delivery.png" alt="Free Shipping Icon"><br><strong> SHIPPING: </strong><br> Free shipping on all orders over 2000</p>
+        <p><img src="https://img.icons8.com/ios-filled/50/4caf50/guarantee.png" alt="Money Back Guarantee Icon"><br><strong>MONEY BACK GUARENTEE</strong><br>100% Money Back Guarentee</p>
+        <p> <img src="https://img.icons8.com/ios-filled/50/4caf50/whatsapp.png" alt="Online Support Icon"><br><strong>ONLINE SUPPORT 24/7</strong><br>Whatsapp for online support</p>
+        <p> <img src="https://img.icons8.com/ios-filled/50/4caf50/checkmark.png" alt="Secure Payment Icon"><br><strong>SECURE PAYMENT</strong><br>100% secure payments in our portal</p>
+    </div>
+    <p>
+    <h2  style = "margin-left: 50px;">Popular Departments</h2>
+    <h4 style = "margin-left: 50px;color:#6b737b"> Products from these category often buy</h5>
+    </p>
+    <br/><br/>
+    <p>
+        <h2 style = "margin-left: 50px;"> Most Popular </h2>
+        <h4 style = "margin-left: 50px;color:#6b737b"> All our new arrivals in an exclusive brand selection</h5>
+        </p>
+
+        <div class="product-slider1" style = "margin-left: 210px;">
+            <div class="slider-container1">
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 1">
+                    <div class="slide-info1">
+                        <h2>Product 1</h2>
+                        <p>Description of Product 1.</p>
+                        <p class="price">$99.99</p>
+                    </div>
+                </div>
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 2">
+                    <div class="slide-info1">
+                        <h2>Product 2</h2>
+                        <p>Description of Product 2.</p>
+                        <p class="price">$89.99</p>
+                    </div>
+                </div>
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 3">
+                    <div class="slide-info1">
+                        <h2>Product 3</h2>
+                        <p>Description of Product 3.</p>
+                        <p class="price">$79.99</p>
+                    </div>
+                </div>
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 4">
+                    <div class="slide-info1">
+                        <h2>Product 4</h2>
+                        <p>Description of Product 4.</p>
+                        <p class="price">$69.99</p>
+                    </div>
+                </div>
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 5">
+                    <div class="slide-info1">
+                        <h2>Product 5</h2>
+                        <p>Description of Product 5.</p>
+                        <p class="price">$59.99</p>
+                    </div>
+                </div>
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 6">
+                    <div class="slide-info1">
+                        <h2>Product 6</h2>
+                        <p>Description of Product 6.</p>
+                        <p class="price">$59.99</p>
+                    </div>
+                </div>
+                <!-- Add more slides if needed -->
+            </div>
+            <button class="slider-button1 prev1" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="slider-button1 next1" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </div>
+    <div class = "sidecontainer" style = "margin-left: 50px; margin-top:60px">
+        <div class="checkbox-container">
+            <label style = "font-family: 'Roboto', 'Lobster', sans-serif;">
+                <input type="checkbox" name="option1">
+            <i><b> AYURVEDIC</b></i>
+            </label>
+            <label style = "font-family: 'Roboto', 'Lobster', sans-serif;">
+                 <input type="checkbox" name="option2">
+               <b><i>ALOPETHIC</b></i>
+            </label>
+            <label style = "font-family: 'Roboto', 'Lobster', sans-serif;">
+                <input type="checkbox" name="option3">
+               <b><i>HOMOPETHIC</i></b> 
+            </label>
+            <label style = "font-family: 'Roboto', 'Lobster', sans-serif;">
+                <input type="checkbox" name="option3">
+               <b><i>SKIN CARE</i></b> 
+            </label>
+            <label style = "font-family: 'Roboto', 'Lobster', sans-serif;">
+                <input type="checkbox" name="option3">
+              <b><i>CAPSULES</i></b>  
+            </label>
+        </div></div>
+        <h2 style = "margin-left: 50px;">This Weeks Special</h2>
+        <h4 style = "margin-left: 50px;color: #505962;">All our arrivals in an exclusive brand selection</h4>
+        <div class="product-slider2">
+            <div class="slider-container1">
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 1">
+                    <div class="slide-info1">
+                        <h2>Product 1</h2>
+                        <p>Description of Product 1.</p>
+                        <p class="price">$99.99</p>
+                    </div>
+                </div>
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 2">
+                    <div class="slide-info1">
+                        <h2>Product 2</h2>
+                        <p>Description of Product 2.</p>
+                        <p class="price">$89.99</p>
+                    </div>
+                </div>
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 3">
+                    <div class="slide-info1">
+                        <h2>Product 3</h2>
+                        <p>Description of Product 3.</p>
+                        <p class="price">$79.99</p>
+                    </div>
+                </div>
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 4">
+                    <div class="slide-info1">
+                        <h2>Product 4</h2>
+                        <p>Description of Product 4.</p>
+                        <p class="price">$69.99</p>
+                    </div>
+                </div>
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 5">
+                    <div class="slide-info1">
+                        <h2>Product 5</h2>
+                        <p>Description of Product 5.</p>
+                        <p class="price">$59.99</p>
+                    </div>
+                </div>
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 6">
+                    <div class="slide-info1">
+                        <h2>Product 6</h2>
+                        <p>Description of Product 6.</p>
+                        <p class="price">$59.99</p>
+                    </div>
+                </div>
+                <!-- Add more slides if needed -->
+            </div>
+            <button class="slider-button1 prev1" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="slider-button1 next1" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+            <!-- one more slider is needed -->
+           
+         <img class = "slide2" src = "C:/Users/Anant/Downloads/coffee2.jpg" style="width:100%; height:500px;background-size:contain;"> 
+         <p class = "neon-text"> THE BLENDED COFFEE PRODUCTS</p>
+        
+        <div class="product-slider3">
+            <div class="slider-container1">
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 1">
+                    <div class="slide-info1">
+                        <h2>Product 1</h2>
+                        <p>Description of Product 1.</p>
+                        <p class="price">$99.99</p>
+                    </div>
+                </div>
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 2">
+                    <div class="slide-info1">
+                        <h2>Product 2</h2>
+                        <p>Description of Product 2.</p>
+                        <p class="price">$89.99</p>
+                    </div>
+                </div>
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 3">
+                    <div class="slide-info1">
+                        <h2>Product 3</h2>
+                        <p>Description of Product 3.</p>
+                        <p class="price">$79.99</p>
+                    </div>
+                </div>
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 4">
+                    <div class="slide-info1">
+                        <h2>Product 4</h2>
+                        <p>Description of Product 4.</p>
+                        <p class="price">$69.99</p>
+                    </div>
+                </div>
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 5">
+                    <div class="slide-info1">
+                        <h2>Product 5</h2>
+                        <p>Description of Product 5.</p>
+                        <p class="price">$59.99</p>
+                    </div>
+                </div>
+                <div class="slide1">
+                    <img src="amla.jpg" alt="Product 6">
+                    <div class="slide-info1">
+                        <h2>Product 6</h2>
+                        <p>Description of Product 6.</p>
+                        <p class="price">$59.99</p>
+                    </div>
+                </div>
+                </div>
+                
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>About Us</h2>
+                <p>We are a company dedicated to providing quality products and services. Our mission is to enhance customer satisfaction through our innovative solutions and exceptional support.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h2>Contact Us</h2>
+                <p>Email: support@example.com</p>
+                <p>Phone: (123) 456-7890</p>
+                <p>Address: 1234 Street Name, City, Country</p>
+            </div>
+            <div class="footer-section contact">
+                <h2>Social Media</h2>
+                <div class="social-media-links">
+                    <a href="https://www.facebook.com" target="_blank" class="social-icon facebook" title="Facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="social-icon twitter" title="Twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="social-icon instagram" title="Instagram"><i class="fa fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank" class="social-icon linkedin" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                    <a href="https://wa.me/1234567890" target="_blank" class="social-icon whatsapp" title="WhatsApp"><i class="fa fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+    
+</body>
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+    
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+    
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            if (n > x.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = x.length}
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+            }
+            x[slideIndex-1].style.display = "block";  
+        }
+        let currentIndex = 0;
+        const slidesToShow = 5;
+
+        function moveSlide(n) {
+            const slides = document.querySelectorAll('.slide1');
+            const totalSlides = slides.length;
+            const maxIndex = totalSlides - slidesToShow;
+
+            // Ensure currentIndex stays within bounds
+            currentIndex = Math.max(0, Math.min(currentIndex + n, maxIndex));
+            const offset = -currentIndex * (100 / slidesToShow); // Each slide takes up (100 / slidesToShow) percent
+
+            // Apply the offset
+            document.querySelector('.slider-container1').style.transform = `translateX(${offset}%)`;
+            let sindex = 0;
+            showSlides();
+        
+            function showSlides() {
+                let slides = document.getElementsByClassName("Slide1");
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
+                sindex++;
+                if (sindex > slides.length) {sindex = 1}    
+                slides[sindex-1].style.display = "block";  
+                setTimeout(showSlides, 2000); // Change image every 2 seconds
+            }
+        
+            function plusDivs(n) {
+                let slides = document.getElementsByClassName("Slide1");
+                sindex += n;
+                if (sindex > slides.length) {sindex = 1}    
+                if (sindex < 1) {sindex = slides.length}    
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
+                slides[sindex-1].style.display = "block";  
+            }}
+    </script>
+</body>
+</html>
